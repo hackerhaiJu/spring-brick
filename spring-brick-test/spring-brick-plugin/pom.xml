@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.zhj.demo</groupId>
+        <artifactId>spring-brick-test</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>spring-brick-plugin</artifactId>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>3.2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gitee.starblues</groupId>
+            <artifactId>spring-brick-bootstrap</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gitee.starblues</groupId>
+            <artifactId>spring-brick</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <plugin.build.mode>dev</plugin.build.mode>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <plugin.build.mode>prod</plugin.build.mode>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.gitee.starblues</groupId>
+                <artifactId>spring-brick-maven-packager</artifactId>
+                <version>3.1.4</version>
+                <configuration>
+                    <!--当前打包模式为: 开发模式-->
+                    <mode>${plugin.build.mode}</mode>
+                    <!--插件信息定义-->
+                    <pluginInfo>
+                        <!--插件id-->
+                        <id>plugin-example</id>
+                        <!--插件入口类, 定义说明见: 定义插件入口类-->
+                        <bootstrapClass>com.zhj.demo.DemoPluginApplication</bootstrapClass>
+                        <!--插件版本号-->
+                        <version>1.0.0-SNAPSHOT</version>
+                        <description>测试插件</description>
+                        <configFileName>application.yml</configFileName>
+                    </pluginInfo>
+                    <prodConfig>
+                        <packageType>jar</packageType>
+                    </prodConfig>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

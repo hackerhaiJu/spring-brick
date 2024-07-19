@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.gitee.starblues</groupId>
+    <artifactId>atom-spring-brick</artifactId>
+    <packaging>pom</packaging>
+    <version>3.1.4</version>
+
+    <modules>
+        <module>spring-brick-common</module>
+        <module>spring-brick-loader</module>
+        <module>spring-brick</module>
+        <module>spring-brick-bootstrap</module>
+        <module>spring-brick-maven-packager</module>
+        <module>spring-brick-test</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.version>3.0.0</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+        <maven-plugin-api.version>3.8.4</maven-plugin-api.version>
+        <maven-plugin-annotations.version>3.6.2</maven-plugin-annotations.version>
+        <maven-common-artifact-filters.version>3.2.0</maven-common-artifact-filters.version>
+        <junit.version>3.8.1</junit.version>
+        <commons-compress.version>1.21</commons-compress.version>
+
+        <lombok.version>1.18.30</lombok.version>
+        <maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
+        <spring-web.version>6.1.5</spring-web.version>
+
+        <slf4j.version>2.0.11</slf4j.version>
+        <jackson.version>2.15.3</jackson.version>
+        <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+        <aspectj.version>1.9.21</aspectj.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-web.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.11.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <plugin.skip>true</plugin.skip>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <properties>
+                <plugin.skip>false</plugin.skip>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

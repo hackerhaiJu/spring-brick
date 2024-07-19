@@ -1,0 +1,10 @@
+plugin:
+  runMode: prod
+  mainPackage: com.zhj.demo
+  pluginPath:
+    - ~/spring-brick-test/plugins
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8900

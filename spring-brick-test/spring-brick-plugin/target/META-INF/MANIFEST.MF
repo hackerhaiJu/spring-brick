@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.3.0
+Build-Jdk-Spec: 17
+Build-Time: 2024-07-19 16:15:21
+Plugin-Meta-Path: /Users/haijun/Work/open-sources/iot-spring-brick/sprin
+ g-brick-test/spring-brick-plugin/target/META-INF/PLUGIN.META
+Plugin-Package-Type: dev
+Implementation-Title: spring-brick-plugin
+Implementation-Version: 1.0.0
+
