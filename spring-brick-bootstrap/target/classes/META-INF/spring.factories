@@ -1,7 +1,0 @@
-# Auto Configuration Import Filters
-org.springframework.boot.autoconfigure.AutoConfigurationImportFilter=\
-com.gitee.starblues.bootstrap.PluginDisableAutoConfiguration
-
-# Auto Configure
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.gitee.starblues.bootstrap.ResolveHttpMessageConvertersConfiguration

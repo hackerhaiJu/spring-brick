@@ -1,9 +1,0 @@
-#plugin meta configuration
-#Fri Jul 19 16:15:21 CST 2024
-plugin.id=plugin-example
-plugin.system.path=/Users/haijun/Work/open-sources/iot-spring-brick/spring-brick-test/spring-brick-plugin/target/classes
-plugin.description=测试插件
-plugin.system.resourcesConfig=/Users/haijun/Work/open-sources/iot-spring-brick/spring-brick-test/spring-brick-plugin/target/META-INF/RESOURCES.CONF
-plugin.version=1.0.0-SNAPSHOT
-plugin.bootstrapClass=com.zhj.demo.DemoPluginApplication
-plugin.configFileName=application.yml
